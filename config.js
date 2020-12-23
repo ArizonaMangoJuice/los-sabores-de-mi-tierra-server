@@ -11,7 +11,9 @@ module.exports = {
         'mongodb://localhost/thinkful-backend-test',
   JWT_SECRET: process.env.JWT_SECRET || 'pancakes',//placeholder
   JWT_EXPIRY: process.env.JWT_EXPIRY || '7d',
-  API_KEY: process.env.API_KEY || 'dummsyApi'//placeholder
+  API_KEY: process.env.API_KEY || 'dummsyApi',
+  API_URL: process.env.API_URL || 'dummyURL',
+  //placeholder
   // DATABASE_URL:
   //     process.env.DATABASE_URL || 'postgres://localhost/thinkful-backend',
   // TEST_DATABASE_URL:

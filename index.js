@@ -14,6 +14,8 @@ const jwtStrategy = require('./passport/jwt');
 const app = express();
 const userRoute = require('./routes/user');
 const authRoute = require('./routes/auth');
+const mediaRoutes = require('./routes/media');
+const postRoutes = require('./routes/post');
 
 
 app.use(
@@ -37,6 +39,10 @@ app.use(express.json());
 app.use('/api/users', userRoute);
 
 app.use('/api', authRoute);
+
+app.use('/api/media', mediaRoutes);
+
+app.use('/api/user/post', postRoutes);
 
 app.use((err,req,res,next) => {
   res.status(err.status || 500);
