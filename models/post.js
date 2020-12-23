@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-    images: [{imageUrl, date, altText}],
+    images: [{imageUrl: String, date: Date, altText: String}],
     title: String,
     ingredients: [[String]],
     description: [{pNumber: Number, text: String}],
