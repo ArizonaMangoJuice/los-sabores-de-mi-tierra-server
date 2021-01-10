@@ -7,10 +7,13 @@ const { API_URL } = require('../config');
 const {JWT_SECRET, JWT_EXPIRY} = require('../config');
 
 const router = express.Router();
+//this will bring the images saved from the recipe site
 
 router.get('/images/:imageurl', (req,res) => {
-    let {imageUrl} = req.params;
-    res.json({imageUrl});
+    let {imageurl} = req.params;
+    console.log(req.params)
+    console.log(imageurl);
+    res.json({imageurl});
 });
 
 module.exports = router;
