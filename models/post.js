@@ -3,19 +3,20 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-    // images: [{imageUrl: String, date: Date, altText: String}],
+    // images: [{imageUrl: String, date: Date.now, altText: String}],
     history: [],
     title: String,
     // ingredients: [[String]],
     // description: [{pNumber: Number, text: String}],
+    youtubeUrl : String,
     date: {type: Date, default: Date.now},
     hidden: Boolean,
     meta: {
         likes: {likes: Number, default: 0}
     }
-});
+}); 
 
-postSchema.set('toObject', {
+postSchema.set('toObject', {    
     transform: (doc, ret) => {
         ret.id = ret._id;
         delete ret._id;
