@@ -17,6 +17,16 @@ router.get('/', (req,res) =>{
         })
 });
 
+router.get('/:title', (req,res, next) => {
+    let {title} = req.params;
+    Post
+        .find({title: title})
+        .then(result => {
+            res.json(result);
+        })
+        .catch(error => next(error));
+});
+
 router.use('/', passport.authenticate('jwt', {session: false, failWithError: true}));
 
 router.post('/', (req,res) => {
