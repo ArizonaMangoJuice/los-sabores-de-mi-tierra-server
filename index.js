@@ -5,7 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const passport = require('passport');
 
-const { PORT, CLIENT_ORIGIN } = require('./config');
+const { PORT, CLIENT_ORIGIN, DATABASE_URL } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 const localStrategy = require('./passport/local');
@@ -23,7 +23,9 @@ app.use(
     skip: (req, res) => process.env.NODE_ENV === 'test'
   })
 );
-console.log('this is the client origin', CLIENT_ORIGIN)
+
+console.log('this is the client origin', CLIENT_ORIGIN, DATABASE_URL)
+
 app.use(
   cors({
     origin: CLIENT_ORIGIN
