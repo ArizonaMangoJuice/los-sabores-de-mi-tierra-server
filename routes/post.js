@@ -14,6 +14,7 @@ const router = express.Router();
 router.get('/', (req,res) =>{
     Post
         .find({})
+        .sort({date: -1})
         .then(result => {
             res.json(result);
         })
